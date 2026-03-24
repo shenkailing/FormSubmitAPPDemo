@@ -1,0 +1,350 @@
+:root {
+  --bg-top: #f7f4ef;
+  --bg-bottom: #eaf2ff;
+  --ink: #0f172a;
+  --ink-muted: #475569;
+  --brand: #0b6e4f;
+  --brand-2: #1261a0;
+  --line: #d3dde9;
+  --card: rgba(255, 255, 255, 0.86);
+  --warn: #b42318;
+  --ok: #0f7b6c;
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --shadow: 0 20px 45px -26px rgba(15, 23, 42, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  color: var(--ink);
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  background: linear-gradient(170deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.bg-shape {
+  position: fixed;
+  border-radius: 999px;
+  filter: blur(1px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-shape-a {
+  width: 340px;
+  height: 340px;
+  right: -90px;
+  top: -70px;
+  background: radial-gradient(circle at 40% 35%, #a8e6cf, #4f86c6 75%);
+  opacity: 0.32;
+}
+
+.bg-shape-b {
+  width: 300px;
+  height: 300px;
+  left: -90px;
+  bottom: -100px;
+  background: radial-gradient(circle at 40% 35%, #ffd29d, #f5a97f 75%);
+  opacity: 0.28;
+}
+
+.app-shell {
+  width: min(1080px, calc(100% - 24px));
+  margin: 22px auto 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  margin: 10px 0 14px;
+  animation: lift-in 520ms ease-out;
+}
+
+.hero-kicker {
+  margin: 0;
+  font: 700 13px/1 "Space Grotesk", sans-serif;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--brand-2);
+}
+
+.hero h1 {
+  margin: 8px 0 8px;
+  font: 700 clamp(1.5rem, 4vw, 2.5rem) / 1.15 "Space Grotesk", sans-serif;
+}
+
+.hero-subtitle {
+  margin: 0;
+  max-width: 740px;
+  color: var(--ink-muted);
+  font-size: clamp(0.95rem, 2.6vw, 1.05rem);
+}
+
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+  padding: 16px;
+  margin-top: 14px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: stagger 560ms ease forwards;
+}
+
+.reveal:nth-of-type(2) {
+  animation-delay: 90ms;
+}
+
+.grid-two {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.field > span {
+  font-weight: 700;
+  font-size: 0.93rem;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.92);
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #4f86c6;
+  box-shadow: 0 0 0 3px rgba(79, 134, 198, 0.2);
+}
+
+.signature-wrap {
+  border: 1px dashed #9db5d0;
+  border-radius: 14px;
+  padding: 10px;
+  margin-top: 6px;
+  background: rgba(238, 247, 255, 0.62);
+}
+
+.signature-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.signature-head > span {
+  font-weight: 700;
+  font-size: 0.93rem;
+}
+
+.signature-actions {
+  display: flex;
+  gap: 8px;
+}
+
+#signaturePad {
+  width: 100%;
+  height: 230px;
+  border: 1px solid #c6d4e3;
+  border-radius: 10px;
+  background: #fff;
+  touch-action: none;
+}
+
+.hint {
+  margin: 8px 0 0;
+  color: var(--ink-muted);
+  font-size: 0.84rem;
+}
+
+.consent {
+  margin-top: 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: #1f2937;
+  font-size: 0.94rem;
+}
+
+.consent input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+}
+
+.btn {
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 130ms ease, box-shadow 130ms ease, background 130ms ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: linear-gradient(120deg, var(--brand), var(--brand-2));
+  color: #fff;
+  padding: 11px 16px;
+  font-weight: 700;
+  box-shadow: 0 14px 28px -16px rgba(11, 110, 79, 0.75);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 18px 30px -16px rgba(18, 97, 160, 0.58);
+}
+
+.btn-ghost {
+  background: #e7f0fb;
+  color: #14446b;
+  padding: 7px 10px;
+  font-weight: 600;
+}
+
+.btn-ghost:hover {
+  background: #dcecff;
+}
+
+.submit-row {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.status {
+  margin: 0;
+  min-height: 1.2em;
+  font-size: 0.92rem;
+}
+
+.status.error {
+  color: var(--warn);
+}
+
+.status.success {
+  color: var(--ok);
+}
+
+.output {
+  display: grid;
+  gap: 10px;
+}
+
+.output-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.output h2 {
+  margin: 0;
+  font: 700 1.02rem/1.3 "Space Grotesk", sans-serif;
+}
+
+#outputBox {
+  margin: 0;
+  border-radius: 12px;
+  border: 1px solid #d6e1ef;
+  background: #f9fbff;
+  padding: 12px;
+  font: 500 0.84rem/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  max-height: 280px;
+  overflow: auto;
+}
+
+@media (min-width: 840px) {
+  .app-shell {
+    margin-top: 28px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .grid-two {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  #signaturePad {
+    height: 260px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-shell {
+    width: min(100%, calc(100% - 14px));
+    margin-top: 10px;
+  }
+
+  .card {
+    border-radius: 16px;
+    padding: 12px;
+  }
+
+  .hero-subtitle {
+    font-size: 0.92rem;
+  }
+
+  #signaturePad {
+    height: 190px;
+  }
+}
+
+@keyframes lift-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes stagger {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

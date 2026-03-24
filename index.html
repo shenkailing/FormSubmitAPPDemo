@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0d1b2a" />
+    <title>Cross-Device Form + Signature Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-shape-a" aria-hidden="true"></div>
+    <div class="bg-shape bg-shape-b" aria-hidden="true"></div>
+
+    <main class="app-shell">
+      <header class="hero">
+        <p class="hero-kicker">Unified H5 Demo</p>
+        <h1>Form Submission with Handwritten Signature</h1>
+        <p class="hero-subtitle">
+          One page for iPhone, Android, and desktop browsers. Fill, sign, and submit.
+        </p>
+      </header>
+
+      <section class="card reveal" aria-label="Form Card">
+        <form id="submissionForm" novalidate>
+          <div class="grid-two">
+            <label class="field">
+              <span>Full Name</span>
+              <input type="text" id="fullName" name="fullName" placeholder="e.g. Alex Chen" required />
+            </label>
+
+            <label class="field">
+              <span>Phone</span>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                inputmode="tel"
+                placeholder="e.g. 13800138000"
+                required
+              />
+            </label>
+          </div>
+
+          <div class="grid-two">
+            <label class="field">
+              <span>Email</span>
+              <input type="email" id="email" name="email" placeholder="e.g. hello@example.com" required />
+            </label>
+
+            <label class="field">
+              <span>Date</span>
+              <input type="date" id="signDate" name="signDate" required />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Agreement</span>
+            <textarea
+              id="agreement"
+              name="agreement"
+              rows="4"
+              placeholder="Describe what is being agreed to..."
+              required
+            ></textarea>
+          </label>
+
+          <div class="signature-wrap">
+            <div class="signature-head">
+              <span>Handwritten Signature</span>
+              <div class="signature-actions">
+                <button type="button" id="clearSignature" class="btn btn-ghost">Clear</button>
+                <button type="button" id="undoSignature" class="btn btn-ghost">Undo</button>
+              </div>
+            </div>
+            <canvas id="signaturePad" aria-label="Signature Pad"></canvas>
+            <p class="hint">Use finger or mouse to sign inside the box.</p>
+          </div>
+
+          <label class="consent">
+            <input type="checkbox" id="consent" name="consent" required />
+            <span>I confirm all information is true and I accept electronic signature.</span>
+          </label>
+
+          <div class="submit-row">
+            <button type="submit" class="btn btn-primary">Submit Form</button>
+            <p id="statusMessage" class="status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </section>
+
+      <section class="card reveal output" aria-label="Submission Output">
+        <div class="output-head">
+          <h2>Submission JSON Preview</h2>
+          <button type="button" id="copyJson" class="btn btn-ghost">Copy JSON</button>
+        </div>
+        <pre id="outputBox">No submission yet.</pre>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
